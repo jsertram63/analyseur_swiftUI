@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var textSaisi = ""
+    @State var analyseurViewModel = AnalyseurViewModel()
     
     var body: some View {
         NavigationView {
@@ -18,8 +19,18 @@ struct ContentView: View {
                     TextField("Saisir votre texte",text: $textSaisi)
                         .padding(.vertical)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
                     Button {
                     print("Image tapped!")
+                         analyseurViewModel.motAnalyse = textSaisi
+                        print(analyseurViewModel.motAnalyse)
+                        analyseurViewModel.analyseMot()
+                        print(analyseurViewModel.nombreDeA)
+                        print(analyseurViewModel.nombreDeE)
+                        print(analyseurViewModel.nombreDeI)
+                        print(analyseurViewModel.nombreDeO)
+                        print(analyseurViewModel.nombreDeU)
+                        print(analyseurViewModel.nombreDeY)
 
                     }
                     label: {
@@ -45,7 +56,7 @@ struct ContentView: View {
                
                       
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("A : 0 occurences")
+                            Text("\(analyseurViewModel.lettreA)")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
@@ -111,7 +122,7 @@ struct ContentView: View {
                         .cornerRadius(10.0)
                         
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text(" 0 consonnes")
+                            Text(" \(analyseurViewModel.nombreDeConsonne) consonnes")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)

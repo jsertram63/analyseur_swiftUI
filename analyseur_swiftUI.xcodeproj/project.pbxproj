@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89176906288B055E004EC01D /* AnalyseurViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89176905288B055E004EC01D /* AnalyseurViewModel.swift */; };
 		8937F5C12885B97000F08647 /* analyseur_swiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937F5C02885B97000F08647 /* analyseur_swiftUIApp.swift */; };
 		8937F5C32885B97000F08647 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8937F5C22885B97000F08647 /* ContentView.swift */; };
 		8937F5C52885B97200F08647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8937F5C42885B97200F08647 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89176905288B055E004EC01D /* AnalyseurViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyseurViewModel.swift; sourceTree = "<group>"; };
 		8937F5BD2885B97000F08647 /* analyseur_swiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = analyseur_swiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8937F5C02885B97000F08647 /* analyseur_swiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = analyseur_swiftUIApp.swift; sourceTree = "<group>"; };
 		8937F5C22885B97000F08647 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				8937F5C22885B97000F08647 /* ContentView.swift */,
 				8937F5C42885B97200F08647 /* Assets.xcassets */,
 				8937F5C62885B97200F08647 /* Preview Content */,
+				89176905288B055E004EC01D /* AnalyseurViewModel.swift */,
 			);
 			path = analyseur_swiftUI;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			files = (
 				8937F5C32885B97000F08647 /* ContentView.swift in Sources */,
 				8937F5C12885B97000F08647 /* analyseur_swiftUIApp.swift in Sources */,
+				89176906288B055E004EC01D /* AnalyseurViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
