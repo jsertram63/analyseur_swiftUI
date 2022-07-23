@@ -5,9 +5,6 @@
 //  Created by Lunack on 22/07/2022.
 //
 
-import Foundation
-
-
 class AnalyseurViewModel  {
     
     var motAnalyse: String = ""

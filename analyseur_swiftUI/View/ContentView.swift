@@ -13,9 +13,11 @@ struct ContentView: View {
     @State var analyseurViewModel = AnalyseurViewModel()
     
     var body: some View {
+        // Container View permettant d'activer la navigation entre les vues
         NavigationView {
-            ScrollView( showsIndicators: false) {
-                VStack(spacing: 25){
+            // Container View permettant le scroll d'une vue si celle est trop grande pour la safe area
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 25) {
                     TextField("Saisir votre texte",text: $textSaisi)
                         .padding(.vertical)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
