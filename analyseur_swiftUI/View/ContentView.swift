@@ -31,6 +31,7 @@ struct ContentView: View {
                 VStack(spacing: 25) {
                     // Container View champ de text - binding de la propriété avec $
                     TextField("Saisir votre texte",text: $textSaisi)
+                    // Modifyers permettant de stylage des container View
                         .frame(width: screenSize.width * 0.9)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.vertical)
@@ -45,7 +46,7 @@ struct ContentView: View {
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                 }
-                .frame(width: screenSize.width * 0.7)
+                .frame(width: screenSize.width * 0.6)
                 .padding()
                 .background(Color(red: 0, green: 0, blue: 0.5))
                 .cornerRadius(10)
@@ -57,11 +58,11 @@ struct ContentView: View {
                     VStack(alignment: .center, spacing: 5.0) {
                         Text("Mot tappé : ")
                             .font(.custom("Noteworthy", size: 20))
-                        .fontWeight(.medium)
+                            .fontWeight(.medium)
                         
                         Text(textSaisi)
                             .font(.custom("Noteworthy", size: 20))
-                        .fontWeight(.medium)
+                            .fontWeight(.medium)
                     }
                     
                     Divider()
