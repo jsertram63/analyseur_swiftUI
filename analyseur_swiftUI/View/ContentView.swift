@@ -9,164 +9,147 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // initialisation des proprités de navigationTitle
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor.tintColor,
+            .font : UIFont(name:"Noteworthy", size: 35)!
+        ]
+    }
+    
     @State var textSaisi = ""
     @State var analyseurViewModel = AnalyseurViewModel()
+    
+    let screenSize = UIScreen.main.bounds
     
     var body: some View {
         // Container View permettant d'activer la navigation entre les vues
         NavigationView {
             // Container View permettant le scroll d'une vue si celle est trop grande pour la safe area
             ScrollView(showsIndicators: false) {
+                // Container View verticale
                 VStack(spacing: 25) {
+                    // Container View champ de text - binding de la propriété avec $
                     TextField("Saisir votre texte",text: $textSaisi)
-                        .padding(.vertical)
+                        .frame(width: screenSize.width * 0.9)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.vertical)
                     
+                    // Container View bouton - logique de l'action + label
                     Button {
-                    print("Image tapped!")
-                         analyseurViewModel.motAnalyse = textSaisi
-                        print(analyseurViewModel.motAnalyse)
-                        analyseurViewModel.analyseMot()
-                        print(analyseurViewModel.nombreDeA)
-                        print(analyseurViewModel.nombreDeE)
-                        print(analyseurViewModel.nombreDeI)
-                        print(analyseurViewModel.nombreDeO)
-                        print(analyseurViewModel.nombreDeU)
-                        print(analyseurViewModel.nombreDeY)
-
-                    }
-                    label: {
-                    Text("Analyser")
-                            .font(.system(size: 20.0))
-                            .foregroundColor(.white)
-                    }
-                    .frame( maxWidth:.infinity)
-                    .padding()
-                    .background(Color(red: 0, green: 0, blue: 0.5))
-                    .cornerRadius(10)
-                    .shadow(color: .black, radius: 5, x: 3, y: 3)
-                    
-                  
-                    Divider()
-                        .padding(.vertical)
-                    Text("Les voyelles")
-                    Divider()
-                        .padding(.vertical)
-                    VStack(alignment: .center, spacing: 15.0) {
                         
-                       
-               
-                      
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text("\(analyseurViewModel.lettreA)")
+                    }
+                label: {
+                    Text("Analyser")
+                        .font(.custom("Noteworthy", size: 15))
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                }
+                .frame(width: screenSize.width * 0.7)
+                .padding()
+                .background(Color(red: 0, green: 0, blue: 0.5))
+                .cornerRadius(10)
+                .shadow(color: .black.opacity(0.5), radius: 5, x: 3, y: 3)
+                    
+                    // Container View séparateur
+                    Divider()
+                    
+                    VStack(alignment: .center, spacing: 5.0) {
+                        Text("Mot tappé : ")
+                            .font(.custom("Noteworthy", size: 20))
+                        .fontWeight(.medium)
+                        
+                        Text(textSaisi)
+                            .font(.custom("Noteworthy", size: 20))
+                        .fontWeight(.medium)
+                    }
+                    
+                    Divider()
+                    
+                    VStack(alignment: .center, spacing: 15.0) {
+                        // Container View horizontal
+                        HStack(spacing: 5) {
+                            Text("A : 0 occurences")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
-
-                        Spacer()
+                            
+                            Spacer()
                         }
                         .background(.red)
                         .cornerRadius(10.0)
                         
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("E : 0 occurences")
+                        HStack(spacing: 5) {
+                            Text("E : 0 occurences")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
-
-                        Spacer()
+                            
+                            Spacer()
                         }
                         .background(.yellow)
                         .cornerRadius(10.0)
                         
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("I : 0 occurences")
+                        HStack(spacing: 5) {
+                            Text("I : 0 occurences")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
-
-                        Spacer()
+                            
+                            Spacer()
                         }
                         .background(.cyan)
                         .cornerRadius(10.0)
                         
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("O : 0 occurences")
+                        HStack(spacing: 5) {
+                            Text("O : 0 occurences")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
-
-                        Spacer()
+                            
+                            Spacer()
                         }
                         .background(.green)
                         .cornerRadius(10.0)
                         
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("U : 0 occurences")
+                        HStack(spacing: 5) {
+                            Text("U : 0 occurences")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
-
-                        Spacer()
+                            
+                            Spacer()
                         }
                         .background(.blue)
                         .cornerRadius(10.0)
                         
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("Y : 0 occurences")
+                        HStack(spacing: 5) {
+                            Text("Y : 0 occurences")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
-
-                        Spacer()
+                            
+                            Spacer()
                         }
                         .background(.purple)
                         .cornerRadius(10.0)
                         
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text(" \(analyseurViewModel.nombreDeConsonne) consonnes")
+                        HStack(spacing: 5) {
+                            Text("0 : consonnes")
                                 .fontWeight(.bold)
                                 .padding()
                                 .foregroundColor(.white)
-
-                        Spacer()
+                            
+                            Spacer()
                         }
                         .background(.black)
                         .cornerRadius(10.0)
-                        /*
-                        RoundedRectangle(cornerRadius:10)
-                            .fill(.red)
-                            .frame( height: 40)
-                       
-                        RoundedRectangle(cornerRadius:10)
-                            .fill(.yellow)
-                            .frame( height: 40)
-                        RoundedRectangle(cornerRadius:10)
-                            .fill(.cyan)
-                            .frame( height: 40)
-                        RoundedRectangle(cornerRadius:10)
-                            .fill(.green)
-                            .frame( height: 40)
-                        RoundedRectangle(cornerRadius:10)
-                            .fill(.blue)
-                            .frame( height: 40)
-                        RoundedRectangle(cornerRadius:10)
-                            .fill(.purple)
-                            .frame( height: 40)
-                        RoundedRectangle(cornerRadius:10)
-                            .fill(.black)
-                            .frame(height: 40)*/
-                       
-                            
-                        
                     }
                 }
                 .padding()
-                
                 .navigationTitle("Analyseur SWIFTUI")
             }
         }
-        
     }
 }
 
